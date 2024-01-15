@@ -27,7 +27,7 @@ class Compte {
         return $this->_titulaire;
     }
     public function getInfos() {
-        return $this->_libelle." : ".$this->_soldeInitial." ".$this->_deviseMonetaire." "."<br>";
+        return $this->_libelle." : ".$this->_soldeInitial." ".$this->_deviseMonetaire."<br>";
     }
 
     public function setLibelle(string $libelle) {

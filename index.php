@@ -5,10 +5,12 @@
 include "./Titulaire.php";
 include "./Compte.php";
 
+
 $t1 = new Titulaire("Manuel","HAMEL","02-04-1968","Sarrebourg");
 
 $c1= new Compte ("Compte courant",0,"€",$t1);
 $c2= new Compte ("Compte épargne",0,"€",$t1);
+
 
 $t1->afficherComptes();
 ?>
