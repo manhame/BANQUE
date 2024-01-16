@@ -5,8 +5,8 @@ class Compte {
     private string $_deviseMonetaire;
     private Titulaire $_titulaire;
    
-    public function __construct($libelle,$soldeInitial,$deviseMonetaire,Titulaire $titulaire) {
-        $this->_libelle=$libelle;
+    public function __construct(string $libelle, float $soldeInitial,string $deviseMonetaire,Titulaire $titulaire) {
+        $this->_libelle = $libelle;
         $this->_soldeInitial=0;
         $this->_deviseMonetaire=$deviseMonetaire;
         $this->_titulaire=$titulaire;
@@ -23,7 +23,7 @@ class Compte {
     public function getDeviseMonetaire() {
         return $this->_deviseMonetaire;
     }
-    public function getTitulaire() {
+    public function getTitulaire() {  //?
         return $this->_titulaire;
     }
     public function getInfos() {
@@ -40,24 +40,22 @@ class Compte {
         $this->_deviseMonetaire = $deviseMonetaire;
     }
     /*
-    public function setTitulaire (string $titulaire) {
+    public function setTitulaire (string $titulaire) { 
         $this -> _titulaire= $titulaire;
     } */
 
-    public function crediter($credit) {
+    public function crediter(float $credit) {
         $this->_soldeInitial += $credit;
     }
-    public function debiter($debit) {
+    public function debiter(float $debit) {
         $this->_soldeInitial -= $debit;
     }
-    public function virer($montant,Compte $compteCible) {
-        $this->_soldeInitial -= $montant;
-        $compteCible->_soldeInitial += $montant;
-            }
-    /*
-    public function virer($virement) {
-        $this -> _soldeInitial -= $debit;
-    } */
+    public function virer(float $montant,Compte $compteCible) { //dans cette classe ?
+        // $this->_soldeInitial -= $montant;
+        // $compteCible->_soldeInitial += $montant;
+        $this->debiter($montant);   // débiter le compte source
+        $compteCible->crediter($montant); // créditer le compte cible
+    }
 }
 
 

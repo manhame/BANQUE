@@ -5,7 +5,7 @@ class Titulaire {
     private string $_nom;
     private DateTime $_dateNaissance;
     private string $_ville;
-    private array $_comptes;
+    private array $_comptes;//au pluriel ?
 
     public function __construct($prenom, $nom, $dateNaissance, $ville) {
         $this->_prenom = $prenom;
@@ -13,7 +13,7 @@ class Titulaire {
         $this->_dateNaissance = new DateTime($dateNaissance);
         $this->_ville = $ville;
 
-        $this ->_comptes = []; // on attribue un tableau vide (ou array()) à l'instance courante $this
+        $this ->_comptes = []; // on attribue un tableau vide (ou array()) à l'instance courante $this/pas possible comme class date ?
     } 
 /*
 public function afficherAge($dateNaissance) {
@@ -53,10 +53,10 @@ public function afficherAge($dateNaissance) {
     public function setNom(string $nom) {
         $this->_nom = $nom;
     }
-    // public function setDateNaissance(float $dateNaissance) {
-    //     $this->_dateNaissance->date_diff(date_create($dateNaissance), date_create(date("Y-m-d")));
-    //     $this->_format("%y ans");
-    // }
+    public function setDateNaissance(dateTime $dateNaissance) {
+        $this->_dateNaissance = $dateNaissance;
+    }
+   
     public function setVille (string $ville) {
         $this->_ville = $ville;
     }
